@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vue JS</title>
+	<script src = "js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1 v-once>{{ title }}</h1>
+		<p>{{ displayMessage() }}</p>
+		<p>Using v-bind: <a v-bind:href="link">Google</a> </p>
+		<p v-html = 'finishedLink'></p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				title : 'Hello World!',
+				link : 'http://google.com',
+				finishedLink: '<a href = "http://google.com">Google</a>',
+			},
+			methods:{
+				displayMessage:function(){
+					this.title = "Hello";
+					return this.title;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
